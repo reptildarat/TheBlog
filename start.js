@@ -1,8 +1,10 @@
 var app = module.exports = require("koa")();
-var routes = require("koa-routes");
+var routes = require("./env/route.js");
+
+app.use(routes.postUsers);
 
 app.use(function *(){
-    console.log(this.request);
+    this.body = "You Reach Index Page!";
 });
 
 app.listen(process.env.PORT);
